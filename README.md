@@ -1,6 +1,8 @@
 # graalvm-playground
 A docker image with GraalVM, JDK 1.8, Node, Maven and Git
-[![Docker Automated build](https://img.shields.io/docker/automated/raonigabriel/graalvm-playground.svg)](https://hub.docker.com/r/raonigabriel/graalvm-playground/) [![$
+
+[![Docker Automated build](https://img.shields.io/docker/automated/raonigabriel/graalvm-playground.svg)](https://hub.docker.com/r/raonigabriel/graalvm-playground/)
+[![ImageLayers Size](https://img.shields.io/imagelayers/image-size/raonigabriel/graalvm-playground/latest.svg)](https://hub.docker.com/r/raonigabriel/graalvm-playground/)
 
 ## Features
 Based on debian:stretch-slim
