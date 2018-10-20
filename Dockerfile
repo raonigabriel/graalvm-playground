@@ -1,5 +1,10 @@
 FROM debian:stretch-slim
 
+LABEL org.label-schema.name="graalvm-playground" \
+      org.label-schema.description="A docker image with GraalVM, JDK 1.8, Node, Maven and Git" \
+      org.label-schema.vcs-url="https://github.com/raonigabriel/graalvm-playground" \
+      org.label-schema.version="1.0.0-rc8"
+
 ENV JAVA_HOME /opt/graalvm
 ENV GRAALVM_HOME /opt/graalvm
 ENV NATIVE_IMAGE_CONFIG_FILE $GRAALVM_HOME/native-image.properties
@@ -11,11 +16,9 @@ RUN apt-get update && \
     curl http://mirror.nbtelecom.com.br/apache/maven/maven-3/3.5.4/binaries/apache-maven-3.5.4-bin.tar.gz -o /tmp/maven.tar.gz && \
     tar -zxvf /tmp/maven.tar.gz -C /tmp && \
     mv /tmp/apache-maven-3.5.4 /opt/apache-maven && \
-    curl -L https://github.com/oracle/graal/releases/download/vm-1.0.0-rc6/graalvm-ce-1.0.0-rc6-linux-amd64.tar.gz -o /tmp/graalvm.tar.gz && \
+    curl -L https://github.com/oracle/graal/releases/download/vm-1.0.0-rc8/graalvm-ce-1.0.0-rc8-linux-amd64.tar.gz -o /tmp/graalvm.tar.gz && \
     tar -zxvf /tmp/graalvm.tar.gz -C /tmp && \
-    mv /tmp/graalvm-ce-1.0.0-rc6 /opt/graalvm && \
-    mvn install:install-file -Dfile=${JAVA_HOME}/jre/lib/svm/builder/svm.jar \
-    -DgroupId=com.oracle.substratevm -DartifactId=svm -Dversion=GraalVM-1.0.0-rc6 -Dpackaging=jar && \
+    mv /tmp/graalvm-ce-1.0.0-rc8 /opt/graalvm && \
     mkdir -p /root/.native-image && \
     echo "NativeImageArgs = --no-server" > $GRAALVM_HOME/native-image.properties && \
     rm -rf /var/lib/apt/lists/* && \
