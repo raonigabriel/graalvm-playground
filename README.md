@@ -7,7 +7,7 @@ A docker image with GraalVM, JDK 1.8, Node, Maven and Git
 
 ## Features
 - Based on [debian:stretch-slim](https://hub.docker.com/r/library/debian/)
-- GraalVM CE [19.1.0](https://github.com/oracle/graal/releases/tag/vm-19.1.0)
+- GraalVM CE [19.1.1](https://github.com/oracle/graal/releases/tag/vm-19.1.1)
 - OpenJDK 1.8.0_212
 - Maven 3.6.1
 - Node 10.15.2
