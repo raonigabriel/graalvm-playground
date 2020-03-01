@@ -1,7 +1,7 @@
 # graalvm-playground
 A docker image with GraalVM, OpenJDK, Node, Maven and Git
 
-[![Docker Automated build](https://img.shields.io/docker/automated/raonigabriel/graalvm-playground.svg)](https://hub.docker.com/r/raonigabriel/graalvm-playground/)
+![Docker Build](https://github.com/raonigabriel/graalvm-playground/workflows/Docker%20Build/badge.svg)
 [![MicroBadger Size](https://images.microbadger.com/badges/image/raonigabriel/graalvm-playground.svg)](https://microbadger.com/images/raonigabriel/graalvm-playground)
 [![MicroBadger Version](https://images.microbadger.com/badges/version/raonigabriel/graalvm-playground.svg)](https://microbadger.com/images/raonigabriel/graalvm-playground)
 
