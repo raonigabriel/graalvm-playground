@@ -18,10 +18,12 @@ jobs:
       id: vars
       run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
     - name: Build the java8/latest Docker image
-      run: docker build . -t raonigabriel/graalvm-playground:$-java8 -t raonigabriel/graalvm-playground:latest
+      run: docker build . -t raonigabriel/graalvm-playground::${{steps.vars.outputs.tag}}-java8 -t raonigabriel/graalvm-playground:latest
     - name: Push the java8 Docker image
-      run: docker push raonigabriel/graalvm-playground:$-java8
+      run: docker push raonigabriel/graalvm-playground::${{steps.vars.outputs.tag}}-java8
+    - name: Push the latest Docker image
+      run: docker push raonigabriel/graalvm-playground:latest  
     - name: Build the java11 Docker image
-      run: docker build . --build-arg JAVA_VERSION=java11 -t raonigabriel/graalvm-playground:$-java11
+      run: docker build . --build-arg JAVA_VERSION=java11 -t raonigabriel/graalvm-playground::${{steps.vars.outputs.tag}}-java11
     - name: Push the java11 Docker image
-      run: docker push raonigabriel/graalvm-playground:$-java11
+      run: docker push raonigabriel/graalvm-playground::${{steps.vars.outputs.tag}}-java11
