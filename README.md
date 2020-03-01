@@ -7,7 +7,7 @@ A docker image with GraalVM, OpenJDK, Node, Maven and Git
 
 ## Tags
 Beggining with GraalVM 20.0.0, there will be 2 diferent versions (tags) of this image: java8 (remains as the **latest tag** ) and java11 
-Therefore, you can docker pull **raonigabriel/graalvm-playground:20.0.0-java8** or **raonigabriel/graalvm-playground:20.0.0-java1**
+Therefore, you can docker pull **raonigabriel/graalvm-playground:20.0.0-java8** or **raonigabriel/graalvm-playground:20.0.0-java11**
 
 ## Features
 - Based on [debian:stretch-slim](https://hub.docker.com/r/library/debian/)
