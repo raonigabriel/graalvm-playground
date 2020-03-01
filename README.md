@@ -1,18 +1,22 @@
 # graalvm-playground
-A docker image with GraalVM, JDK 1.8, Node, Maven and Git
+A docker image with GraalVM, OpenJDK, Node, Maven and Git
 
 [![Docker Automated build](https://img.shields.io/docker/automated/raonigabriel/graalvm-playground.svg)](https://hub.docker.com/r/raonigabriel/graalvm-playground/)
 [![MicroBadger Size](https://images.microbadger.com/badges/image/raonigabriel/graalvm-playground.svg)](https://microbadger.com/images/raonigabriel/graalvm-playground)
 [![MicroBadger Version](https://images.microbadger.com/badges/version/raonigabriel/graalvm-playground.svg)](https://microbadger.com/images/raonigabriel/graalvm-playground)
 
+## Tags
+Beggining with GraalVM 20.0.0, there will be 2 diferent versions (tags) of this image: java8 (remains as the **latest tag** ) and java11 
+Therefore, you can docker pull **raonigabriel/graalvm-playground:20.0.0-java8** or **raonigabriel/graalvm-playground:20.0.0-java1**
+
 ## Features
 - Based on [debian:stretch-slim](https://hub.docker.com/r/library/debian/)
-- GraalVM CE [19.2.1](https://github.com/oracle/graal/releases/tag/vm-19.2.1)
-- OpenJDK 1.8.0_232
-- Maven 3.6.2
-- Node 10.16.3
+- GraalVM CE [20.0.0](https://github.com/oracle/graal/releases/tag/vm-20.0.0)
+- OpenJDK 8u242 or OpenJDK 11.0.6
+- Maven 3.6.3
+- Node 12.15.0
 - Git 2.11.0
-- Upx 3.9.1
+- Upx 3.91
 
 ## Usage
 Best used if you mount your home to /root, as follows:
