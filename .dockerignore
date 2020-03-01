@@ -1,5 +1,6 @@
 .git
 .gitignore
+.github/
 LICENSE
 VERSION
 README.md
