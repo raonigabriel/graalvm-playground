@@ -11,7 +11,7 @@ Therefore, you can docker pull **raonigabriel/graalvm-playground:20.2.0-java8** 
 
 ## Features
 - Based on [debian:stretch-slim](https://hub.docker.com/r/library/debian/)
-- GraalVM CE [20.1.0](https://github.com/oracle/graal/releases/tag/vm-20.1.0)
+- GraalVM CE [20.2.0](https://github.com/oracle/graal/releases/tag/vm-20.2.0)
 - OpenJDK 8u262 or OpenJDK 11.0.8
 - Maven 3.6.3
 - Node 12.18.0
