@@ -27,8 +27,6 @@ RUN wget -q --no-check-certificate https://zlib.net/zlib-1.2.11.tar.gz && \
 
 FROM debian:stretch-slim
 
-COPY --from=builder /usr/local/musl /usr/local/musl
-
 # Update and install dependencies and download and install Maven
 ARG DEBIAN_FRONTEND=noninteractive
 ARG MAVEN_VERSION=3.6.3
@@ -40,7 +38,6 @@ RUN apt-get update && \
     curl -s -L $MAVEN_PKG | tar -xz -C /opt
 
 # Download and install GraalVM (also adds native-image and wasm)]
-# This is on a diferent layer on purpose (take advantage of caching for java8 and java11 versions)
 ARG GRAALVM_VERSION=20.2.0
 ARG GRAALVM_PKG=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$GRAALVM_VERSION/graalvm-ce-java11-linux-amd64-$GRAALVM_VERSION.tar.gz
 ENV JAVA_HOME=/opt/graalvm-ce-java11-$GRAALVM_VERSION
@@ -55,4 +52,12 @@ LABEL org.label-schema.schema-version = "1.0" \
       org.label-schema.vcs-url="https://github.com/raonigabriel/graalvm-playground" \
       org.label-schema.version="$GRAALVM_VERSION-java11"
 
-WORKDIR /root
+# Copy muslc stuff from previous stage
+COPY --from=builder /usr/local/musl /usr/local/musl
+
+# Create default group and user (make more jenkins-docker friendly) 
+RUN groupadd -g 1000 graalvm && \
+    useradd -m -u 1000 -g 1000 graalvm
+
+USER graalvm
+WORKDIR /home/graalvm
