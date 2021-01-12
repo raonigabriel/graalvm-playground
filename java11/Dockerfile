@@ -38,7 +38,7 @@ RUN apt-get update && \
     curl -s -L $MAVEN_PKG | tar -xz -C /opt
 
 # Download and install GraalVM (also adds native-image and wasm)]
-ARG GRAALVM_VERSION=20.2.0
+ARG GRAALVM_VERSION=20.3.0
 ARG GRAALVM_PKG=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$GRAALVM_VERSION/graalvm-ce-java11-linux-amd64-$GRAALVM_VERSION.tar.gz
 ENV JAVA_HOME=/opt/graalvm-ce-java11-$GRAALVM_VERSION
 ENV PATH=$MAVEN_HOME/bin:$JAVA_HOME/jre/bin:$JAVA_HOME/bin:/usr/local/musl/bin:$PATH
