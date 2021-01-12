@@ -12,7 +12,7 @@ RUN apt-get update && \
 
 # Download and install GraalVM (also adds native-image and wasm)]
 # This is on a diferent layer on purpose (take advantage of caching for java8 and java11 versions)
-ARG GRAALVM_VERSION=20.2.0
+ARG GRAALVM_VERSION=20.3.0
 ARG JAVA_VERSION=java8
 ARG GRAALVM_PKG=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$GRAALVM_VERSION/graalvm-ce-$JAVA_VERSION-linux-amd64-$GRAALVM_VERSION.tar.gz
 ENV JAVA_HOME=/opt/graalvm-ce-$JAVA_VERSION-$GRAALVM_VERSION
