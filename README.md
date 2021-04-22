@@ -8,6 +8,7 @@ A docker image with GraalVM, OpenJDK, Maven and Git
 ## Tags
 Beggining with GraalVM 20.0.0, there will be 2 diferent versions (tags) of this image: java8 (remains as the **latest tag** ) and java11 
 Therefore, you can docker pull **raonigabriel/graalvm-playground:21.1.0-java8** or **raonigabriel/graalvm-playground:21.1.0-java11**
+
 From 21.1.0 onwards, Node.js no longer comes pre-installed with GraalVM. You may install it using **gu install nodejs**.
 
 ## Features
