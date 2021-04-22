@@ -38,7 +38,7 @@ RUN apt-get update && \
     curl -s -L $MAVEN_PKG | tar -xz -C /opt
 
 # Download and install GraalVM (also adds native-image and wasm)]
-ARG GRAALVM_VERSION=20.3.0
+ARG GRAALVM_VERSION=21.1.0
 ARG GRAALVM_PKG=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$GRAALVM_VERSION/graalvm-ce-java11-linux-amd64-$GRAALVM_VERSION.tar.gz
 ENV JAVA_HOME=/opt/graalvm-ce-java11-$GRAALVM_VERSION
 ENV PATH=$MAVEN_HOME/bin:$JAVA_HOME/jre/bin:$JAVA_HOME/bin:/usr/local/musl/bin:$PATH
@@ -48,7 +48,7 @@ RUN curl -s -L $GRAALVM_PKG | tar -xz -C /opt && \
 # Metadata
 LABEL org.label-schema.schema-version = "1.0" \
       org.label-schema.name="graalvm-playground-$JAVA_VERSION" \
-      org.label-schema.description="A docker image with GraalVM, OpenJDK, Node, Maven and Git" \
+      org.label-schema.description="A docker image with GraalVM, OpenJDK, Maven and Git" \
       org.label-schema.vcs-url="https://github.com/raonigabriel/graalvm-playground" \
       org.label-schema.version="$GRAALVM_VERSION-java11"
 

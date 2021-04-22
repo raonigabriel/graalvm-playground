@@ -12,7 +12,7 @@ RUN apt-get update && \
 
 # Download and install GraalVM (also adds native-image and wasm)]
 # This is on a diferent layer on purpose (take advantage of caching for java8 and java11 versions)
-ARG GRAALVM_VERSION=20.3.0
+ARG GRAALVM_VERSION=21.1.0
 ARG JAVA_VERSION=java8
 ARG GRAALVM_PKG=https://github.com/graalvm/graalvm-ce-builds/releases/download/vm-$GRAALVM_VERSION/graalvm-ce-$JAVA_VERSION-linux-amd64-$GRAALVM_VERSION.tar.gz
 ENV JAVA_HOME=/opt/graalvm-ce-$JAVA_VERSION-$GRAALVM_VERSION
@@ -23,7 +23,7 @@ RUN curl -s -L $GRAALVM_PKG | tar -xz -C /opt && \
 # Metadata
 LABEL org.label-schema.schema-version = "1.0" \
       org.label-schema.name="graalvm-playground-$JAVA_VERSION" \
-      org.label-schema.description="A docker image with GraalVM, OpenJDK, Node, Maven and Git" \
+      org.label-schema.description="A docker image with GraalVM, OpenJDK, Maven and Git" \
       org.label-schema.vcs-url="https://github.com/raonigabriel/graalvm-playground" \
       org.label-schema.version="$GRAALVM_VERSION-$JAVA_VERSION"
 
