@@ -47,7 +47,7 @@ RUN curl -s -L $GRAALVM_PKG | tar -xz -C /opt && \
 
 # Metadata
 LABEL org.label-schema.schema-version = "1.0" \
-      org.label-schema.name="graalvm-playground-$JAVA_VERSION" \
+      org.label-schema.name="graalvm-playground-java11" \
       org.label-schema.description="A docker image with GraalVM, OpenJDK, Maven and Git" \
       org.label-schema.vcs-url="https://github.com/raonigabriel/graalvm-playground" \
       org.label-schema.version="$GRAALVM_VERSION-java11"
