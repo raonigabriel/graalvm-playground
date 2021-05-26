@@ -25,7 +25,7 @@ jobs:
     - name: Push the latest Docker image
       run: docker push raonigabriel/graalvm-playground:latest  
     - name: Build the java11 Docker image
-      run: docker build . --build-arg JAVA_VERSION=java11 -t raonigabriel/graalvm-playground:$RELEASE_VERSION-java11
+      run: docker build java11/ -t raonigabriel/graalvm-playground:$RELEASE_VERSION-java11
       env:
         RELEASE_VERSION: ${{ github.event.release.tag_name }}         
     - name: Push the java11 Docker image
