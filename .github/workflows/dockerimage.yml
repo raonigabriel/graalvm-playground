@@ -15,20 +15,24 @@ jobs:
     - name: Login to DockerHub Registry
       run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
     - name: Build the java8/latest Docker image
-      run: docker build . -t raonigabriel/graalvm-playground:$RELEASE_VERSION-java8 -t raonigabriel/graalvm-playground:latest
+      run: docker build . -t raonigabriel/graalvm-playground:$RELEASE_VERSION-java8 -t raonigabriel/graalvm-playground:java8 -t raonigabriel/graalvm-playground:latest
       env:
         RELEASE_VERSION: ${{ github.event.release.tag_name }}      
-    - name: Push the java8 Docker image
+    - name: Push the versioned/java8 Docker image
       run: docker push raonigabriel/graalvm-playground:$RELEASE_VERSION-java8
       env:
         RELEASE_VERSION: ${{ github.event.release.tag_name }}       
+    - name: Push the java8 Docker image
+      run: docker push raonigabriel/graalvm-playground:java8  
     - name: Push the latest Docker image
       run: docker push raonigabriel/graalvm-playground:latest  
     - name: Build the java11 Docker image
-      run: docker build java11/ -t raonigabriel/graalvm-playground:$RELEASE_VERSION-java11
+      run: docker build java11/ -t raonigabriel/graalvm-playground:$RELEASE_VERSION-java11 raonigabriel/graalvm-playground:java11
       env:
         RELEASE_VERSION: ${{ github.event.release.tag_name }}         
-    - name: Push the java11 Docker image
+    - name: Push the versioned/java11 Docker image
       run: docker push raonigabriel/graalvm-playground:$RELEASE_VERSION-java11
       env:
         RELEASE_VERSION: ${{ github.event.release.tag_name }} 
+    - name: Push the java11 Docker image
+      run: docker push raonigabriel/graalvm-playground:java11
